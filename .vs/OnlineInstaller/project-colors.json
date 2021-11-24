@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "a7fcc435-abc1-4df9-bb72-a2dad2196946": {
+      "ProjectGuid": "a7fcc435-abc1-4df9-bb72-a2dad2196946",
+      "DisplayName": "OnlineInstaller",
+      "ColorIndex": 0
+    }
+  },
+  "NextColorIndex": 1
+}

@@ -1,0 +1,14 @@
+﻿<Window x:Class="MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:OnlineInstaller"
+        mc:Ignorable="d"
+        Title="Qinlili Package Launcher" Height="250" Width="450" ResizeMode="CanMinimize" WindowStyle="None" SizeToContent="Manual" WindowStartupLocation="CenterScreen" BorderBrush="Black" BorderThickness="1,1,1,1">
+    <Grid>
+        <ProgressBar x:Name="PBar" HorizontalAlignment="Center" Height="5" VerticalAlignment="Top" Width="450" IsIndeterminate="True" Background="White" BorderBrush="White" BorderThickness="0,0,0,0"/>
+        <Label x:Name="InstallName" Content="正在读取包信息..." HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top" Width="430" FontSize="24"/>
+        <Label x:Name="InstallStatus" Content="请稍等..." HorizontalAlignment="Center" Margin="0,57,0,0" VerticalAlignment="Top" FontSize="16" Width="428" Height="181" Grid.Column="0" ScrollViewer.HorizontalScrollBarVisibility="Disabled" ScrollViewer.VerticalScrollBarVisibility="Disabled" FlowDirection="LeftToRight" UseLayoutRounding="False" IsHitTestVisible="False"/>
+    </Grid>
+</Window>

@@ -1,0 +1,8 @@
+{
+  "Name": "ReinePrint",
+  "InstallLocation": "Here",
+  "RunExe": "ReinePrint-main/PythonModuleInit.bat",
+  "PerformOnlineInstall": true,
+  "OnlinePackage": "https://github.com/qinlili23333/ReinePrint/archive/refs/heads/main.zip",
+  "HybridInstall": false
+}
