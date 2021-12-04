@@ -4,5 +4,6 @@
   "RunExe": "ReinePrint-main/PythonModuleInit.bat",
   "PerformOnlineInstall": true,
   "OnlinePackage": "http://127.0.0.1:888/D%3A/Games/Origin/Apex/paks/Win64/pc_all.opt.starpak",
-  "HybridInstall": false
+  "HybridInstall": false,
+  "DetectLocalFile":  "Key.exe"
 }

