@@ -38,7 +38,14 @@ Class MainWindow
             Dim dlt As Task = Task.Run(Sub()
                                            Dim fileReq As HttpWebRequest = HttpWebRequest.Create(InstallJSON.OnlinePackage)
                                            Dim fileResp As HttpWebResponse = fileReq.GetResponse()
-                                           archive = New ZipArchive(fileResp.GetResponseStream())
+                                           Try
+                                               archive = New ZipArchive(fileResp.GetResponseStream())
+                                           Catch ex As IOException
+                                               If ex.Message.Contains("Stream was too long.") Then
+                                                   MsgBox("单个安装包过大，请使用分包安装",, "安装失败")
+                                                   End
+                                               End If
+                                           End Try
                                        End Sub)
             Await dlt.WaitAsync(New TimeSpan(10, 0, 0, 0))
             If InstallJSON.HybridInstall = True Then
