@@ -19,6 +19,7 @@ Class MainWindow
         Public Property OnlinePackage As String
         Public Property HybridInstall As Boolean
         Public Property DetectLocalFile As String
+        Public Property SkipIfExist As Boolean
     End Class
     Private Async Sub DoInstallAsync()
         Dim asm As Assembly = Assembly.GetExecutingAssembly()
@@ -44,6 +45,10 @@ Class MainWindow
                          End Sub)
                 GoTo ExitSub
             End If
+        End If
+        If InstallJSON.SkipIfExist And File.Exists(InstallJSON.RunExe) Then
+            Process.Start(InstallJSON.RunExe)
+            End
         End If
         InstallName.Content = InstallJSON.Name
         Dim archive As ZipArchive

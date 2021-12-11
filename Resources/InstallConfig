@@ -1,9 +1,10 @@
 {
-  "Name": "ReinePrint",
+  "Name": "RunCat",
   "InstallLocation": "Here",
-  "RunExe": "ReinePrint-main/PythonModuleInit.bat",
-  "PerformOnlineInstall": true,
-  "OnlinePackage": "http://127.0.0.1:888/D%3A/Games/Origin/Apex/paks/Win64/pc_all.opt.starpak",
+  "RunExe": "RunCat.exe",
+  "PerformOnlineInstall": false,
+  "OnlinePackage": "https://",
   "HybridInstall": false,
-  "DetectLocalFile":  "Key.exe"
+  "SkipIfExist": true,
+  "DetectLocalFile": "None"
 }
