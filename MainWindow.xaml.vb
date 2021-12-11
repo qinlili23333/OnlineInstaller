@@ -22,6 +22,7 @@ Class MainWindow
         Public Property SkipIfExist As Boolean
     End Class
     Private Async Sub DoInstallAsync()
+        'MsgBox(Command())
         Dim asm As Assembly = Assembly.GetExecutingAssembly()
         'MsgBox(String.Join(",", Assembly.GetExecutingAssembly().GetManifestResourceNames().ToArray()))
         Dim InstallJSON
@@ -46,7 +47,7 @@ Class MainWindow
                 GoTo ExitSub
             End If
         End If
-        If InstallJSON.SkipIfExist And File.Exists(InstallJSON.RunExe) Then
+        If InstallJSON.SkipIfExist And File.Exists(InstallJSON.RunExe) And Not Command().Contains("--fix") Then
             Process.Start(InstallJSON.RunExe)
             End
         End If
