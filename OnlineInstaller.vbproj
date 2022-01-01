@@ -10,7 +10,7 @@
     <Authors>琴梨梨</Authors>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
     <PackageLicenseExpression></PackageLicenseExpression>
-    <ApplicationIcon>drivers.ico</ApplicationIcon>
+    <ApplicationIcon></ApplicationIcon>
     <Platforms>AnyCPU;x64</Platforms>
   </PropertyGroup>
 

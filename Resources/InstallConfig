@@ -1,10 +1,10 @@
 {
-  "Name": "RunCat",
+  "Name": "Unlock FPS - Bloody Spell",
   "InstallLocation": "Here",
-  "RunExe": "RunCat.exe",
+  "RunExe": "steam://rungameid/992300",
   "PerformOnlineInstall": false,
-  "OnlinePackage": "https://",
+  "OnlinePackage": "",
   "HybridInstall": false,
-  "SkipIfExist": true,
+  "SkipIfExist": false,
   "DetectLocalFile": "None"
 }

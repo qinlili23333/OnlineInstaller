@@ -98,13 +98,17 @@ Class MainWindow
                                                         End
                                                     End Sub)
                                        Else
-                                           If File.Exists(InstallJSON.RunExe) Then
+                                           If File.Exists(InstallJSON.RunExe) Or InstallJSON.RunExe.Contains("://") Then
                                                InstallStatus.Content = "安装成功!即将启动..."
                                                PBar.IsIndeterminate = False
                                                PBar.Value = 100
                                                Task.Run(Async Sub()
                                                             Await Task.Delay(1000)
-                                                            Process.Start(InstallJSON.RunExe)
+                                                            If InstallJSON.RunExe.Contains("://") Then
+                                                                Interaction.Shell("cmd.exe /c start " + InstallJSON.RunExe + " & exit", AppWinStyle.Hide)
+                                                            Else
+                                                                Process.Start(InstallJSON.RunExe)
+                                                            End If
                                                             Await Task.Delay(1000)
                                                             End
                                                         End Sub)
